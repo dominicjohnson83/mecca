@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mecca Landing Page with Overlay Box</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px;
+      border-bottom: 1px solid #eaeaea;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #b97a57;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      /* Replace this URL with your desired background image */
+      background: url('https://northsite.org.au/wp-content/uploads/2023/05/instagram-1-1536x1536.png') center/cover no-repeat;
+    }
+
+    /* Overlay Box */
+    .overlay-box {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60%;          /* Adjust as needed (e.g., 80%, 50%) */
+      padding: 30px;
+      background-color: #2c3e50; /* A deep blue; change to suit your branding */
+      color: #fff;
+      border-top-right-radius: 10px; /* Rounded corner at top-right */
+      box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+    .overlay-box h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .overlay-box h2 {
+      font-size: 1.2em;
+      margin-bottom: 8px;
+    }
+    .overlay-box p {
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .content {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    footer {
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    /* Chatbot Pop-Up Styles */
+    .chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 300px;
+      height: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      z-index: 1000;
+    }
+    .chatbot-header {
+      background: #b97a57;
+      color: #fff;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+    }
+    .chatbot-close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #fff;
+    }
+    .chatbot-iframe {
+      width: 100%;
+      height: calc(100% - 40px); /* Subtract header height */
+      border: 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      .hero {
+        height: 60vh;
+      }
+      .overlay-box {
+        width: 90%;
+        padding: 20px;
+        border-top-right-radius: 0;
+      }
+      .overlay-box h1 {
+        font-size: 1.6em;
+      }
+      .chatbot-container {
+        width: 90%;
+        left: 5%;
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <!-- Overlay Box with text -->
+    <div class="overlay-box">
+      <h1>MECCA Streamlines Compliance with Centric PLM</h1>
+      <h2>Australian beauty retailer MECCA partners with Centric Software</h2>
+      <p>Streamline compliance at an ingredient and product level, 
+      all in one place.</p>
+      <p>
+        <strong>Australia</strong> • 
+        <strong>Asia Pacific</strong> • 
+        <strong>Cosmetics & Personal Care</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="content">
+    <h2>Our Products</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ligula vel orci luctus ultrices.</p>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Mecca. All rights reserved.</p>
+  </footer>
+  
+  <!-- Chatbot Pop-Up -->
+  <div class="chatbot-container" id="chatbot">
+    <div class="chatbot-header">
+      Need Assistance?
+      <span class="chatbot-close" id="chatbotClose">&times;</span>
+    </div>
+    <iframe 
+      class="chatbot-iframe" 
+      src="https://copilotstudio.preview.microsoft.com/environments/Default-e1861c85-3a1d-4ba7-8d7d-1c5536d73ddc/bots/cr0d5_meccaAgent/webchat?__version__=2"
+      frameborder="0">
+    </iframe>
+  </div>
+  
+  <script>
+    // Optional: Close button for the chatbot pop-up
+    document.getElementById('chatbotClose').addEventListener('click', function() {
+      document.getElementById('chatbot').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
