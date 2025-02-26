@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Demo Landing Page</title>
+  <title>Demo Landing Page with Chatbot</title>
   <style>
-    /* Basic Reset */
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -75,25 +75,45 @@
       margin: 0 auto;
       text-align: center;
     }
-    .iframe-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-      margin-top: 20px;
-    }
-    .iframe-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
     footer {
       background: #f4f4f4;
       padding: 20px;
       text-align: center;
       font-size: 0.9em;
+    }
+    /* Chatbot Pop-Up Styles */
+    .chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 300px; /* Adjust as needed */
+      height: 400px; /* Adjust as needed */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      z-index: 1000;
+    }
+    .chatbot-header {
+      background: #b97a57;
+      color: #fff;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+    }
+    .chatbot-close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #fff;
+    }
+    .chatbot-iframe {
+      width: 100%;
+      height: calc(100% - 40px); /* Subtract header height */
+      border: 0;
     }
     @media (max-width: 768px) {
       .hero h1 {
@@ -107,6 +127,11 @@
       }
       nav ul li {
         margin: 10px 0;
+      }
+      .chatbot-container {
+        width: 90%;
+        left: 5%;
+        height: 300px;
       }
     }
   </style>
@@ -132,15 +157,30 @@
   </section>
   
   <section class="content">
-    <h2>Need Assistance?</h2>
-    <p>Chat with our support bot for personalized help.</p>
-    <div class="iframe-container">
-      <iframe src="https://copilotstudio.preview.microsoft.com/environments/Default-e1861c85-3a1d-4ba7-8d7d-1c5536d73ddc/bots/cr0d5_meccaAgent/webchat?__version__=2" frameborder="0"></iframe>
-    </div>
+    <h2>About Our Products</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed ligula vel orci luctus ultrices.</p>
   </section>
   
   <footer>
     <p>&copy; 2025 Your Company Name. All rights reserved.</p>
   </footer>
+  
+  <!-- Chatbot Pop-Up -->
+  <div class="chatbot-container" id="chatbot">
+    <div class="chatbot-header">
+      Need Assistance?
+      <span class="chatbot-close" id="chatbotClose">&times;</span>
+    </div>
+    <iframe class="chatbot-iframe" 
+            src="https://copilotstudio.preview.microsoft.com/environments/Default-e1861c85-3a1d-4ba7-8d7d-1c5536d73ddc/bots/cr0d5_meccaAgent/webchat?__version__=2" 
+            frameborder="0"></iframe>
+  </div>
+  
+  <script>
+    // Optional: Add close functionality for the chatbot pop-up
+    document.getElementById('chatbotClose').addEventListener('click', function() {
+      document.getElementById('chatbot').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
